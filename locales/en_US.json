@@ -1,0 +1,19 @@
+{
+  "name": "English",
+  "data": {
+    "changelang": "Change Language",
+    "cancel": "cancel",
+    "notfound": "this tool not exists",
+    "notfounddes": "we don't have this tool now",
+    "tool": "tool",
+    "similartag": "similar tools:",
+    "tag": {
+      "beautify": "beautify",
+      "converter": "converter",
+      "minify": "minify"
+    },
+    "cate": {
+      "developer": "developer"
+    }
+  }
+}

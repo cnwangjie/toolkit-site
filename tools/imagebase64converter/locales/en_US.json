@@ -1,0 +1,6 @@
+{
+  "toolname": "image base64 converter",
+  "description": "encode image to base64 or decode base64 to img",
+  "decode": "decode",
+  "select": "select image"
+}

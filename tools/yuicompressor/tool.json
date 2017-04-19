@@ -1,0 +1,17 @@
+{
+  "date": "2017-04-17",
+  "css": [
+  ],
+  "script": [
+    "https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js",
+    "@script.js"
+  ],
+  "tag": [
+    "js",
+    "css",
+    "minify"
+  ],
+  "cate": [
+    "developer"
+  ]
+}

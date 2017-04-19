@@ -1,0 +1,19 @@
+{
+  "name": "中文(简体)",
+  "data": {
+    "changelang": "更换语言",
+    "cancel": "取消",
+    "notfound": "没有这个工具",
+    "notfounddes": "我们暂时没有提供这个工具，请检查一下是不是路径错了",
+    "tool": "工具",
+    "similartag": "相似工具：",
+    "tag": {
+      "beautify": "美化",
+      "converter": "转化",
+      "minify": "压缩"
+    },
+    "cate": {
+      "developer": "开发者"
+    }
+  }
+}

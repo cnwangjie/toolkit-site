@@ -1,0 +1,42 @@
+.appbar-textfield.mdui-textfield-expanded {
+  width: 400px;
+}
+
+.main {
+  padding: 40px 0 0;
+}
+
+#i18n {
+  width: 320px;
+}
+
+.similartag {
+  padding: 24px 12px;
+  background: #fcfcfc;
+}
+
+.similartag-desc {
+  color: gray;
+  font-size: 16px;
+  padding: 0 0 8px 8px;
+}
+
+.similartag a {
+  display: inline-block;
+  padding: 0 4px;
+  text-decoration: none;
+  color: #15c;
+}
+
+.similartag a:visited {
+  color: #61c;
+}
+
+.similartag a:hover {
+  color: #d14836;
+  text-decoration: underline;
+}
+
+.similartag a:active {
+  color: #d14836;
+}

@@ -1,0 +1,6 @@
+{
+  "toolname": "在线任意图片转Base64编码工具",
+  "description": "支持文件大小不限，支持 PNG、GIF、JPG、BMP、ICO 格式",
+  "decode": "转换成图片",
+  "select": "选择图片"
+}

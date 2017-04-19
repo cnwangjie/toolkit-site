@@ -1,0 +1,10 @@
+{
+  "toolname": "YUI Compressor在线压缩（Javascript/Css）",
+  "description": "支持多文件的压缩合并，但是请注意合并的文件属于同一种类型，js或css，不可混淆使用。",
+  "execute": "YUICompressor压缩",
+  "add": "添加文件",
+  "holder": "在这里贴入要压缩或者要格式化的JavaScript / CSS 代码",
+  "nomunge": "只压缩，不混淆",
+  "presemi": "保留不重要的分号",
+  "disopt": "禁用细微优化"
+}

@@ -1,0 +1,8 @@
+{
+  "toolname": "JSON code highlight format beautify | verify format",
+  "description": "beautify or verify JSON code",
+  "beautify": "format JSON",
+  "raw": "Raw JSON",
+  "noquote": "remove quote",
+  "indentation": "indentation"
+}

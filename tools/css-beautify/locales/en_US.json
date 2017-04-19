@@ -1,0 +1,5 @@
+{
+  "toolname": "css beautifier",
+  "description": "beautify the css code",
+  "beautify": "beautify"
+}

@@ -1,0 +1,8 @@
+{
+  "toolname": "JSON代码格式化高亮美化 | 格式校验工具",
+  "description": "美化和校验json代码",
+  "beautify": "验证JSON",
+  "raw": "Raw JSON",
+  "noquote": "去除引号",
+  "indentation": "缩进量"
+}

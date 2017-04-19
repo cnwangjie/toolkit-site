@@ -1,0 +1,10 @@
+{
+  "toolname": "YUI Compressor online (JavaScript / CSS)",
+  "description": "support multi file compress",
+  "execute": "YUICompress",
+  "add": "add file",
+  "holder": "paste JavaScript / CSS to be formatted or compressed here",
+  "nomunge": "Minify only, do not obfuscate",
+  "presemi": "Preserve all semicolons",
+  "disopt": "Disable all micro optimizations"
+}

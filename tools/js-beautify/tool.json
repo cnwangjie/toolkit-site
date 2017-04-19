@@ -1,0 +1,21 @@
+{
+  "date": "2017-04-17",
+  "css": [
+    "https://cdn.bootcss.com/codemirror/5.25.0/codemirror.min.css",
+    "https://cdn.bootcss.com/codemirror/5.25.0/theme/material.min.css"
+  ],
+  "script": [
+    "https://cdn.bootcss.com/codemirror/5.25.0/codemirror.min.js",
+    "https://cdn.bootcss.com/codemirror/5.25.0/addon/selection/active-line.min.js",
+    "https://cdn.bootcss.com/codemirror/5.25.0/mode/javascript/javascript.min.js",
+    "https://cdn.bootcss.com/js-beautify/1.6.12/beautify.min.js",
+    "@script.js"
+  ],
+  "tag": [
+    "js",
+    "beautify"
+  ],
+  "cate": [
+    "developer"
+  ]
+}

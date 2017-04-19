@@ -1,0 +1,52 @@
+<form id="cl">
+
+  <label class="mdui-radio">
+    <input type="radio" name="codelang" value="js" checked/>
+    <i class="mdui-radio-icon"></i>
+    JavaScript
+  </label>
+
+  </br>
+
+  <label class="mdui-radio">
+    <input type="radio" name="codelang" value="css"/>
+    <i class="mdui-radio-icon"></i>
+    CSS
+  </label>
+
+  </br>
+
+  <label class="mdui-switch">
+    <input type="checkbox" id="nomunge"/>
+    <i class="mdui-switch-icon"></i>
+    <%= nomunge %>
+  </label>
+
+  </br>
+
+  <label class="mdui-switch">
+    <input type="checkbox" id="presemi"/>
+    <i class="mdui-switch-icon"></i>
+    <%= presemi %>
+  </label>
+
+  </br>
+
+  <label class="mdui-switch">
+    <input type="checkbox" id="disopt"/>
+    <i class="mdui-switch-icon"></i>
+    <%= disopt %>
+  </label>
+
+</form>
+<div id="input">
+  <textarea class="mdui-textfield-input" placeholder="<%= holder %>"></textarea>
+</div>
+<script>
+var holder = '<%= holder %>'
+</script>
+<p>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="e()"><%= execute %></button>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="add()"><%= add %></button>
+</p>
+<textarea class="mdui-textfield-input" id="result"></textarea>

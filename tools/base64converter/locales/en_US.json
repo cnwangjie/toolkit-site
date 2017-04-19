@@ -1,0 +1,6 @@
+{
+  "toolname": "base64 converter",
+  "description": "encode base64 or decode base64",
+  "encode": "encode",
+  "decode": "decode"
+}

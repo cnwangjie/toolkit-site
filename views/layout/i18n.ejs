@@ -1,0 +1,14 @@
+<div class="mdui-dialog" id="i18n">
+  <div class="mdui-dialog-title"><%= __('changelang', lang) %></div>
+  <div class="mdui-dialog-content">
+    <ul class="mdui-list">
+      <% if (typeof tool == 'undefined') tool = '' %>
+      <% langs.forEach(function(l) { %>
+      <li class="mdui-list-item mdui-ripple"><a href="/<%= l.code %>/<%= tool %>"><%= l.name %></a></li>
+      <% }) %>
+    </ul>
+  </div>
+  <div class="mdui-dialog-actions">
+    <button class="mdui-btn mdui-ripple" mdui-dialog-close><%= __('cancel', lang) %></button>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{
+  "toolname": "javascript beautifier",
+  "description": "beautify the javascript code",
+  "beautify": "beautify"
+}

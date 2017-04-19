@@ -1,0 +1,25 @@
+<%- include('layout/head') %>
+<%- include('layout/appbar') %>
+<%- include('layout/drawer') %>
+<%- include('layout/i18n') %>
+
+<div class="mdui-container main">
+  <h1><%= cate %></h1>
+  <p class="description"><%= description %></p>
+  <div class="mdui-row">
+    <% items.forEach(function(item) { %>
+    <div class="mdui-col-sm-6 mdui-col-md-4 mdui-col-lg-3">
+      <div class="mdui-card item">
+        <div class="mdui-card-header">
+          <img class="mdui-card-header-avatar" src="<%= item.icon %>"/>
+          <div class="mdui-card-header-title"><%= item.name %></div>
+          <div class="mdui-card-header-subtitle"><%= item.desc %></div>
+        </div>
+        <a href="<%= item.link %>" target="_blank"></a>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('layout/foot') %>

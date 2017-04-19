@@ -1,0 +1,12 @@
+  <script src="/static/js/mdui.min.js"></script>
+
+  <% if (typeof scriptlist != 'undefined') scriptlist.forEach(function(src) { %>
+  <script src="<%= src %>"></script>
+  <% }) %>
+
+  <% if (typeof script == 'string') { %>
+  <script>
+  <%- script %>
+  </script>
+  <% } %>
+</body>
