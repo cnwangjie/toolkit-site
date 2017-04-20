@@ -1,0 +1,17 @@
+<% pagetype = 'page' %>
+<%- include('layout/head') %>
+<%- include('layout/appbar') %>
+<%- include('layout/drawer') %>
+<%- include('layout/i18n') %>
+
+<div class="mdui-container main">
+  <% if (type == 'tool') { %>
+  <h1><%= __('toolnotfound', lang) %></h1>
+  <p><%= __('toolnotfounddes', lang) %></p>
+  <% } else if (type == 'cate') { %>
+  <h1><%= __('catenotfound', lang) %></h1>
+  <p><%= __('catenotfounddes', lang) %></p>
+  <% } %>
+</div>
+
+<%- include('layout/foot') %>

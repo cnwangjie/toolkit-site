@@ -3,9 +3,12 @@
   "data": {
     "changelang": "Change Language",
     "cancel": "cancel",
-    "notfound": "this tool not exists",
-    "notfounddes": "we don't have this tool now",
+    "toolnotfound": "this tool not exists",
+    "toolnotfounddes": "we don't have this tool now",
+    "catenotfound": "this category not exists",
+    "catenotfounddes": "we don't hava this category",
     "tool": "tool",
+    "cate": "category",
     "similartag": "similar tools:",
     "tag": {
       "beautify": "beautify",

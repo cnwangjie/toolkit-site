@@ -3,9 +3,12 @@
   "data": {
     "changelang": "更换语言",
     "cancel": "取消",
-    "notfound": "没有这个工具",
-    "notfounddes": "我们暂时没有提供这个工具，请检查一下是不是路径错了",
+    "toolnotfound": "没有这个工具",
+    "toolnotfounddes": "我们暂时没有提供这个工具，请检查一下是不是路径错了",
+    "toolnotfound": "没有这个分类",
+    "toolnotfounddes": "没有这个分类哦，请检查一下是不是路径错了",
     "tool": "工具",
+    "cate": "分类",
     "similartag": "相似工具：",
     "tag": {
       "beautify": "美化",

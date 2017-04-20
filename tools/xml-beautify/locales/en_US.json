@@ -1,0 +1,6 @@
+{
+  "toolname": "format XML online and compress XML online",
+  "description": "a tool can format XML online, and support compress feature",
+  "beautify": "format",
+  "compress": "compress"
+}

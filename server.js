@@ -21,15 +21,33 @@ for (let code in i18n.langs) {
     })
 }
 
-let render = (req, res, next) => {
+let rendercate = (req, res, next) => {
+    let cate = req.params.cate
+    let lang = req.lang || 'en_US'
+    if (!(cate in cates)) {
+        res.status(404).render('notfound.ejs', {
+            path: req.rawpath,
+            type: 'cate',
+            sitename: sitename,
+            title: 'notfound',
+            cates: cates,
+            langs: langlist,
+            lang: lang,
+            __: i18n.__,
+        })
+    }
+}
+
+let rendertool = (req, res, next) => {
     let tool = req.params.toolname
     let lang = req.lang || 'en_US'
     if (!fs.existsSync(`./tools/${tool}/tool.json`)) {
-        res.status(404).render('404.ejs', {
-            tool: tool,
+        res.status(404).render('notfound.ejs', {
+            path: req.rawpath,
+            type: 'tool',
             sitename: sitename,
             title: 'notfound',
-            cates: [],
+            cates: cates,
             langs: langlist,
             lang: lang,
             __: i18n.__,
@@ -72,6 +90,7 @@ let render = (req, res, next) => {
         }
     })
     let data = {
+        path: req.rawpath,
         sitename: sitename,
         tool: tool,
         tpl: `../tools/${tool}/index`,
@@ -105,6 +124,11 @@ app.use('/static', express.static('./static'))
 
 app.use('*', (req, res, next) => {
     req.startTime = Date.now()
+    next()
+})
+
+app.use('*', (req, res, next) => {
+    // TODO: 获取解析rawpath
     next()
 })
 
@@ -153,14 +177,34 @@ toolsdir.map((i) => {
         app.use(`/${i}/api`, require(`./tools/${i}/api.js`))
     }
 })
-console.log(cates)
+
+app.get('/:lang/cate/:cate', (req, res, next) => {
+    req.lang = req.params.lang
+    rendercate(req, res, next)
+})
+
+app.get('/cate/:cate', (req, res, next) => {
+    rendercate(req, res, next)
+})
+
 app.get('/:lang/:toolname', (req, res, next) => {
     req.lang = req.params.lang
-    render(req, res, next)
+    rendertool(req, res, next)
+})
+
+app.get('/:lang', (req, res, next) => {
+    req.lang = req.params.lang
+    for (let tl of langlist) {
+        if (tl.code == req.lang) {
+            renderhome(req, res, next)
+            return
+        }
+    }
+    next()
 })
 
 app.get('/:toolname', (req, res, next) => {
-    render(req, res, next)
+    rendertool(req, res, next)
 })
 
 app.get('/:tpl', (req, res, next) => {

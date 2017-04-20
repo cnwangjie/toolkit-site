@@ -1,0 +1,6 @@
+{
+  "toolname": "在线格式化XML 在线压缩XML",
+  "description": "一款可以格式化XML的工具，并且提供压缩XML的功能",
+  "beautify": "格式化",
+  "compress": "压缩"
+}
