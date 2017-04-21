@@ -21,20 +21,53 @@ for (let code in i18n.langs) {
     })
 }
 
+let renderhome = (req, res, next) => {
+    let lang = req.lang || 'en_US'
+    res.send('home')
+    next()
+}
+
 let rendercate = (req, res, next) => {
     let cate = req.params.cate
     let lang = req.lang || 'en_US'
     if (!(cate in cates)) {
         res.status(404).render('notfound.ejs', {
-            path: req.rawpath,
+            funcpath: req.funcpath,
             type: 'cate',
             sitename: sitename,
             title: 'notfound',
+            langs: langlist,
+            lang: lang,
+            __: i18n.__,
+        })
+        next()
+    } else {
+        let items = []
+        cates[cate].forEach((i) => {
+            let toollang = 'en_US'
+            if (lang in tools[i].i18n) {
+                toollang = lang
+            }
+            let tooli18n = tools[i].i18n[toollang]
+            let item = {
+                tool: i,
+                toolname: tooli18n.toolname,
+                description: tooli18n.description
+            }
+            items.push(item)
+        })
+        res.render('cate.ejs', {
+            funcpath: req.funcpath,
+            type: 'cate',
+            sitename: sitename,
+            catename: __(`cate.${cate}`, lang),
+            items: items,
             cates: cates,
             langs: langlist,
             lang: lang,
             __: i18n.__,
         })
+        next()
     }
 }
 
@@ -43,7 +76,7 @@ let rendertool = (req, res, next) => {
     let lang = req.lang || 'en_US'
     if (!fs.existsSync(`./tools/${tool}/tool.json`)) {
         res.status(404).render('notfound.ejs', {
-            path: req.rawpath,
+            funcpath: req.funcpath,
             type: 'tool',
             sitename: sitename,
             title: 'notfound',
@@ -65,12 +98,7 @@ let rendertool = (req, res, next) => {
             tooldata.script[key] = tooldata.script[key].replace('@', `/${tool}/static/`)
         }
     }
-    let i18ndata = {}
-    if (fs.existsSync(`./tools/${tool}/locales/${lang}.json`)) {
-        i18ndata = JSON.parse(fs.readFileSync(`./tools/${tool}/locales/${lang}.json`))
-    } else {
-        i18ndata = JSON.parse(fs.existsSync(`./tools/${tool}/locales/en_US.json`))
-    }
+
     let thistags = tools[tool].tag
     let similartag = new Set()
     thistags.map((i) => {
@@ -90,7 +118,7 @@ let rendertool = (req, res, next) => {
         }
     })
     let data = {
-        path: req.rawpath,
+        funcpath: req.funcpath,
         sitename: sitename,
         tool: tool,
         tpl: `../tools/${tool}/index`,
@@ -103,9 +131,13 @@ let rendertool = (req, res, next) => {
         lang: lang,
         __: i18n.__,
     }
-    for (let key in i18ndata) {
-        if (i18ndata.hasOwnProperty(key)) {
-            data[key] = i18ndata[key]
+    let toollang = 'en_US'
+    if (lang in tools[tool].i18n) {
+        toollang = lang
+    }
+    for (let key in tools[tool].i18n[toollang]) {
+        if (tools[tool].i18n[toollang].hasOwnProperty(key)) {
+            data[key] = tools[tool].i18n[toollang][key]
         }
     }
     res.render('tool.ejs', data)
@@ -127,8 +159,44 @@ app.use('*', (req, res, next) => {
     next()
 })
 
+// 获取解析funcpath
 app.use('*', (req, res, next) => {
-    // TODO: 获取解析rawpath
+    let curpath = req.originalUrl
+    req.funcpath = curpath
+    req.langpath = undefined
+    for (let tl of langlist) {
+        if (new RegExp(`${tl.code}`).test(curpath)) {
+            req.langpath = tl.code
+            req.funcpath = curpath.replace(`/${tl.code}`, '')
+            break
+        }
+    }
+    next()
+})
+
+// 解析用户语言
+app.use('*', (req, res, next) => {
+    let cookie = req.cookies.lang || null
+    if (cookie) {
+        for (let tl of langlist) {
+            if (cookie == tl.code) {
+                req.lang = tl.code
+            }
+        }
+        res.clearCookie('lang')
+    }
+
+    if (req.langpath) {
+        for (let tl of langlist) {
+            if (req.langpath == tl.code) {
+                res.cookie('lang', tl.code, {maxAge: 604800000})
+                req.lang = tl.code
+                next()
+                return
+            }
+        }
+    }
+
     next()
 })
 
@@ -155,7 +223,6 @@ toolsdir.map((i) => {
     localesdir.map((ii) => {
         tools[i].i18n[path.basename(ii, '.json')] = JSON.parse(fs.readFileSync(`./tools/${i}/locales/${ii}`))
     })
-    console.log(tools[i].i18n)
 
     for (let key of tmpdata.tag) {
         if (key in tags) {
@@ -179,21 +246,46 @@ toolsdir.map((i) => {
 })
 
 app.get('/:lang/cate/:cate', (req, res, next) => {
-    req.lang = req.params.lang
+
+    console.log('!')
+    if (res.headersSent) {
+        next()
+        return
+    }
+    req.lang = req.lang || req.params.lang
+    console.log(req.lang)
+    if (!req.lang in langlist) {
+        res.redirect(`/cate/${req.params.cate}`)
+        next()
+        return
+    }
     rendercate(req, res, next)
 })
 
 app.get('/cate/:cate', (req, res, next) => {
+    if (res.headersSent) {
+        next()
+        return
+    }
     rendercate(req, res, next)
 })
 
 app.get('/:lang/:toolname', (req, res, next) => {
-    req.lang = req.params.lang
+    if (res.headersSent) {
+        next()
+        return
+    }
+    req.lang = req.lang || req.params.lang
     rendertool(req, res, next)
 })
 
-app.get('/:lang', (req, res, next) => {
-    req.lang = req.params.lang
+app.get('/:lang/home', (req, res, next) => {
+    req.lang = req.lang || req.params.lang
+    if (!req.lang in langlist) {
+        res.redirect(`/`)
+        next()
+        return
+    }
     for (let tl of langlist) {
         if (tl.code == req.lang) {
             renderhome(req, res, next)
@@ -204,28 +296,22 @@ app.get('/:lang', (req, res, next) => {
 })
 
 app.get('/:toolname', (req, res, next) => {
+  console.log('1')
     rendertool(req, res, next)
 })
 
-app.get('/:tpl', (req, res, next) => {
-    if (res.statusCode != undefined) {
-        next()
-    } else {
-        let tpl = req.params.tpl
-        res.render(`${tpl}.ejs`, {
-            toolname: '1',
-            sitename: '2',
-            cates: [],
-            langs: [],
-            cate: '',
-            description: 'aaaa',
-            items: [],
-        })
-        next()
-    }
+app.get('/', (req, res, next) => {
+    renderhome(req, res, next)
 })
 
 app.use('*', (req, res) => {
+    // if (!res.headersSent) {
+    //     if (req.get('User-Agent')) {
+    //         res.redirect('/')
+    //     } else {
+    //         res.status(404).end()
+    //     }
+    // }
     console.log(`${new Date(req.startTime).toUTCString()} ${req.method} ${req.originalUrl} \u001b[32m${res.statusCode}\u001b[39m ${Date.now() - req.startTime} ms`)
 })
 

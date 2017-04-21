@@ -3,7 +3,7 @@
   <div class="mdui-dialog-content">
     <ul class="mdui-list">
       <% langs.forEach(function(l) { %>
-      <li class="mdui-list-item mdui-ripple"><a href="/<%= l.code %>/<%= path %>"><%= l.name %></a></li>
+      <li class="mdui-list-item mdui-ripple"><a href="/<%= l.code %><%= funcpath %>"><%= l.name %></a></li>
       <% }) %>
     </ul>
   </div>

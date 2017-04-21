@@ -1,7 +1,8 @@
 <% pagetype = 'tool' %>
 <% if (typeof csslist != 'object') csslist = [] %>
 <%- include('layout/head', {
-    csslist: csslist
+    csslist: csslist,
+    title: toolname
 }) %>
 <%- include('layout/appbar') %>
 <%- include('layout/drawer') %>
@@ -14,7 +15,7 @@
   <div class="similartag">
     <div class="similartag-desc"><%= __('similartag', lang) %></div>
     <% similartag.forEach(function(i) { %>
-    <a href="/<%= lang %>/<%= i.tool %>" target="_blank"><%= i.toolname %></a>
+    <a href="/<%= i.tool %>" target="_blank"><%= i.toolname %></a>
     <% }) %>
   </div>
   <% } %>

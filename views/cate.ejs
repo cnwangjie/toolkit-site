@@ -1,0 +1,41 @@
+<% pagetype = 'tool' %>
+<%- include('layout/head', {
+    csslist: [
+
+    ],
+    title: catename
+}) %>
+<%- include('layout/appbar') %>
+<%- include('layout/drawer') %>
+<%- include('layout/i18n') %>
+
+<div class="mdui-container main">
+  <h1><%= catename %></h1>
+  <% if (typeof items == 'object') { %>
+  <div class="mdui-row">
+      <% items.forEach(function(item) { %>
+      <div class="mdui-col-sm-6 mdui-col-md-4 mdui-col-lg-3">
+        <div class="mdui-card item">
+          <div class="mdui-card-header">
+            <div class="mdui-card-header-title"><%= item.toolname %></div>
+            <div class="mdui-card-header-subtitle"><%= item.description %></div>
+          </div>
+          <a href="/<%= item.tool %>" title="<%= item.description %>" target="_blank"></a>
+        </div>
+      </div>
+      <% }) %>
+  </div>
+  <% } else { %>
+  <div>
+      No result.
+  </div>
+  <% } %>
+</div>
+
+
+<% if (typeof scriptlist != 'object') scriptlist = [] %>
+<% if (typeof script != 'string') script = null %>
+<%- include('layout/foot', {
+    scriptlist: scriptlist,
+    script: script,
+}) %>
