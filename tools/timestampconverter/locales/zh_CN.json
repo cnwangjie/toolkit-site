@@ -1,0 +1,8 @@
+{
+  "toolname": "时间戳转换",
+  "description": "将时间戳和指定格式的时间直接互换",
+  "timestamp": "时间戳 (毫秒)",
+  "format": "格式",
+  "result": "结果",
+  "formatdes": "格式说明"
+}

@@ -173,10 +173,9 @@ app.use('*', (req, res, next) => {
     }
     next()
 })
-
 // 解析用户语言
 app.use('*', (req, res, next) => {
-    let cookie = req.cookies.lang || null
+    let cookie = req.cookies.userlang || null
     if (cookie) {
         for (let tl of langlist) {
             if (cookie == tl.code) {
@@ -189,7 +188,8 @@ app.use('*', (req, res, next) => {
     if (req.langpath) {
         for (let tl of langlist) {
             if (req.langpath == tl.code) {
-                res.cookie('lang', tl.code, {maxAge: 604800000})
+                console.log(tl.code)
+                res.cookie('userlang', tl.code, {maxAge: 604800000})
                 req.lang = tl.code
                 next()
                 return

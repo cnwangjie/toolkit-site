@@ -8,8 +8,8 @@ var t1 = CodeMirror.fromTextArea(document.getElementById('t1'), {
 })
 t0.setSize('100%', 200)
 function b() {
-    t1.setValue(vkbeautify.xml(t0.getValue()))
+    t1.setValue(vkbeautify.sql(t0.getValue()))
 }
 function m() {
-    t1.setValue(vkbeautify.xmlmin(t0.getValue()))
+    t1.setValue(vkbeautify.sqlmin(t0.getValue()))
 }

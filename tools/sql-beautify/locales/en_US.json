@@ -1,0 +1,6 @@
+{
+  "toolname": "format SQL online and compress SQL online",
+  "description": "a tool can format SQL online, and support compress feature",
+  "beautify": "format",
+  "compress": "compress"
+}

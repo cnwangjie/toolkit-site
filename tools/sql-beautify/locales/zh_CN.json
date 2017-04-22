@@ -1,0 +1,6 @@
+{
+  "toolname": "在线格式化SQL 在线压缩SQL",
+  "description": "一款可以格式化SQL的工具，并且提供压缩SQL的功能",
+  "beautify": "格式化",
+  "compress": "压缩"
+}

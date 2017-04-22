@@ -1,0 +1,8 @@
+{
+  "toolname": "timestamp converter",
+  "description": "exchange timestamp and format time",
+  "timestamp": "timestamp (ms)",
+  "format": "format",
+  "result": "result",
+  "formatdes": "format description"
+}
