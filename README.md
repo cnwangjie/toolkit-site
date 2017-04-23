@@ -1,15 +1,34 @@
 toolkit-site
 ======
 
+### 目录结构
+
+```
+.
+├── locales (整站i18n文件)
+├── static (静态资源目录)
+├── tmp (临时文件目录)
+├── tools (工具目录)
+├── views (视图模板)
+├── i18n.js (i18n模块)
+├── loader.js (工具加载模块)
+├── package.json
+├── README.md
+├── renderer.js (渲染器模块)
+├── render.js
+└── server.js (服务器入口)
+
+```
+
 ### 变量说明
 
 |变量名|说明|
 |--|--|
-|langpath|语言部分的uri|
-|funcpath|除去语言部分的uri，包括/|
+|req.langpath|语言部分的uri|
+|req.funcpath|除去语言部分的uri，包括/|
+|req.lang|语言，在中间件中加入|
 |sitename|站点名，不需要i18n|
 |tool|工具的根目录名，工具的索引|
-|lang|语言|
 |langlist|语言列表，对象数组|
 |tools|工具列表，索引为tool的对象|
 |cates|分类列表，索引为分类的对象|
@@ -27,8 +46,7 @@ toolkit-site
     │   ├── en_US.json (默认语言，必须完整存在)
     │   └── zh_CN.json
     ├── static (静态资源目录，可以使用@加文件名引入)
-    │   ├── script.js
-    │   └── vkbeautify.js
+    │   └── script.js
     └── tool.json (配置文件，必须存在)
 
 ```
@@ -54,3 +72,8 @@ toolkit-site
 }
 
 ```
+
+语言文件
+
+ - 必须存在`toolname`和`description`两个条目用于父级模板中工具名和简介的显示
+ - 其他条目会在模板中自动加载可以直接使用`<%= 变量名 %>`

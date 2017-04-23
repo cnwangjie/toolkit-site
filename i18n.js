@@ -12,6 +12,13 @@ i18n.init = (opts) => {
         i18n.update(file)
         i18n.watch(file)
     })
+    global.langlist = []
+    for (let code in i18n.langs) {
+        langlist.push({
+            code: code,
+            name: i18n.langs[code].name,
+        })
+    }
     return i18n
 }
 
