@@ -2,7 +2,28 @@ const fs = require('fs')
 
 let renderhome = (req, res, next) => {
     let lang = req.lang || 'en_US'
-    res.send('home')
+    let newitems = Object.keys(tools).sort((a, b) => {
+        return tools[a].date > tools[b].date
+    }).reverse().slice(0,24).map((i) => {
+        let i18n = lang in tools[i].i18n ? tools[i].i18n[lang] : tools[i].i18n['en_US']
+        return {
+            tool: i,
+            toolname: i18n.toolname,
+            description: i18n.description
+        }
+    })
+    res.render('home.ejs', {
+        funcpath: '/',
+        type: 'home',
+        sitename: sitename,
+        title: __('homepagetitle', lang),
+        newitems: newitems,
+        langs: langlist,
+        cates: cates,
+        tools: tools,
+        lang: lang,
+        __: __,
+    })
     next()
 }
 
@@ -14,7 +35,7 @@ let rendercate = (req, res, next) => {
             funcpath: req.funcpath,
             type: 'cate',
             sitename: sitename,
-            title: 'notfound',
+            title: __('notfoundpagetitle', lang),
             langs: langlist,
             lang: lang,
             __: __,
@@ -58,7 +79,7 @@ let rendertool = (req, res, next) => {
             funcpath: req.funcpath,
             type: 'tool',
             sitename: sitename,
-            title: 'notfound',
+            title: __('notfoundpagetitle', lang),
             cates: cates,
             langs: langlist,
             lang: lang,

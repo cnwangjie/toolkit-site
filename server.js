@@ -52,12 +52,17 @@ app.use('*', function pathParser(req, res, next) {
 app.use('*', function langParser(req, res, next) {
     let cookie = req.cookies.userlang || null
     if (cookie) {
+        let verifiedLang = false
         for (let tl of langlist) {
             if (cookie == tl.code) {
                 req.lang = tl.code
+                verifiedLang = true
             }
         }
-        res.clearCookie('userlang')
+
+        if (verifiedLang == false) {
+            res.clearCookie('userlang')
+        }
     }
 
     if (req.langpath) {
@@ -88,13 +93,11 @@ app.get('/:toolname/static/:source', (req, res, next) => {
 
 app.get('/:lang/cate/:cate', (req, res, next) => {
 
-    console.log('!')
     if (res.headersSent) {
         next()
         return
     }
     req.lang = req.lang || req.params.lang
-    console.log(req.lang)
     if (!req.lang in langlist) {
         res.redirect(`/cate/${req.params.cate}`)
         next()
@@ -137,7 +140,16 @@ app.get('/:lang/home', (req, res, next) => {
 })
 
 app.get('/:toolname', (req, res, next) => {
-    rendertool(req, res, next)
+    if (req.langpath == req.lang) {
+        next()
+        return
+    } else {
+        rendertool(req, res, next)
+    }
+})
+
+app.get('/:lang', (req, res, next) => {
+    renderhome(req, res, next)
 })
 
 app.get('/', (req, res, next) => {

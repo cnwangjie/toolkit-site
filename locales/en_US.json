@@ -10,6 +10,9 @@
     "tool": "tool",
     "cate": "category",
     "similartag": "similar tools:",
+    "homepagetitle": "home",
+    "notfoundpagetitle": "notfound",
+    "newtools": "new tools",
     "tag": {
       "beautify": "beautify",
       "converter": "converter",
