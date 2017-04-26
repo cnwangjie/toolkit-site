@@ -1,6 +1,10 @@
+// TODO config
+// TODO search
+// XXX fix route bug; more new tools; add some comments; some new feature of tool
 const express = require('express')
      ,_ = require('lodash')
      ,port = 8088
+     ,DEBUG = true
      ,cookieParser = require('cookie-parser')
      ,bodyParser = require('body-parser')
      ,fs = require('fs')
@@ -13,19 +17,28 @@ const express = require('express')
 global.app = express()
 global.sitename = 'toolkit-site'
 
+let log = DEBUG ? console.log : ()=>{}
+
+// init i18n
 i18n.init()
-console.log(`i18n sources loaded!`)
+console.log(`\u001b[32m\u2714\u001b[39m i18n sources loaded!`)
 global.__ = i18n.__
+
+// init toolsdata
 loader()
+
+// bind template render
 let renderhome = renderer.homerenderer
 let rendercate = renderer.caterenderer
 let rendertool = renderer.toolrenderer
 
 app.listen(port)
-console.log(`listening port: ${port}`)
+console.log(`\u001b[32m\u2714\u001b[39m listening port: ${port}`)
 
 app.engine('html', ejs.renderFile)
 app.set('view engine', 'html')
+
+// use basically middleware to handle http context
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser())
 app.use('/static', express.static('./static'))
@@ -68,7 +81,6 @@ app.use('*', function langParser(req, res, next) {
     if (req.langpath) {
         for (let tl of langlist) {
             if (req.langpath == tl.code) {
-                console.log(tl.code)
                 res.cookie('userlang', tl.code, {maxAge: 604800000})
                 req.lang = tl.code
                 next()
@@ -80,6 +92,7 @@ app.use('*', function langParser(req, res, next) {
     next()
 })
 
+// 工具静态文件
 app.get('/:toolname/static/:source', (req, res, next) => {
     let toolname = req.params.toolname
     let source = req.params.source
@@ -90,7 +103,7 @@ app.get('/:toolname/static/:source', (req, res, next) => {
     next()
 })
 
-
+// 带语言目录的分类页
 app.get('/:lang/cate/:cate', (req, res, next) => {
 
     if (res.headersSent) {
@@ -106,6 +119,7 @@ app.get('/:lang/cate/:cate', (req, res, next) => {
     rendercate(req, res, next)
 })
 
+// 分类页
 app.get('/cate/:cate', (req, res, next) => {
     if (res.headersSent) {
         next()
@@ -114,6 +128,7 @@ app.get('/cate/:cate', (req, res, next) => {
     rendercate(req, res, next)
 })
 
+// 带语言的工具页
 app.get('/:lang/:toolname', (req, res, next) => {
     if (res.headersSent) {
         next()
@@ -123,6 +138,7 @@ app.get('/:lang/:toolname', (req, res, next) => {
     rendertool(req, res, next)
 })
 
+// 带语言和标签的首页
 app.get('/:lang/home', (req, res, next) => {
     req.lang = req.lang || req.params.lang
     if (!req.lang in langlist) {
@@ -139,8 +155,9 @@ app.get('/:lang/home', (req, res, next) => {
     next()
 })
 
+// 工具页
 app.get('/:toolname', (req, res, next) => {
-    if (req.langpath == req.lang) {
+    if (req.langpath) {
         next()
         return
     } else {
@@ -148,14 +165,20 @@ app.get('/:toolname', (req, res, next) => {
     }
 })
 
+// 带语言的首页
 app.get('/:lang', (req, res, next) => {
-    renderhome(req, res, next)
+    if (req.langpath) {
+        renderhome(req, res, next)
+    } else {
+        next()
+    }
 })
 
 app.get('/', (req, res, next) => {
     renderhome(req, res, next)
 })
 
+// 控制台信息
 app.use('*', function logger(req, res) {
     // if (!res.headersSent) {
     //     if (req.get('User-Agent')) {
@@ -164,7 +187,7 @@ app.use('*', function logger(req, res) {
     //         res.status(404).end()
     //     }
     // }
-    console.log(`${new Date(req.startTime).toUTCString()} ${req.method} ${req.originalUrl} \u001b[32m${res.statusCode}\u001b[39m ${Date.now() - req.startTime} ms`)
+    console.log(`${new Date(req.startTime).toUTCString()} \u001b[32m${req.method}\u001b[39m ${req.originalUrl} \u001b[32m${res.statusCode}\u001b[39m ${Date.now() - req.startTime} ms`)
 })
 
-console.log('all routes registered!')
+console.log('\u001b[32m\u2714\u001b[39m all routes registered!')

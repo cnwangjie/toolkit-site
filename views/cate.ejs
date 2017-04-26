@@ -18,7 +18,13 @@
         <div class="mdui-card item">
           <div class="mdui-card-header">
             <div class="mdui-card-header-title"><%= item.toolname %></div>
-            <div class="mdui-card-header-subtitle"><%= item.description %></div>
+            <div class="mdui-card-header-subtitle">
+              <% if (typeof description == 'string') { %>
+                <%= description %>
+              <% } else if (length in description) { %>
+                <%= description[0] %>
+              <% } %>
+            </div>
           </div>
           <a href="/<%= item.tool %>" title="<%= item.description %>" target="_blank"></a>
         </div>

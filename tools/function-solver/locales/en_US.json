@@ -1,0 +1,12 @@
+{
+  "toolname": "automatic solver of univariate function",
+  "description": [
+    "auto solve univariate function",
+    "support plus(+) minus(-) multiply(*) divide(/) involute(^) trigonometric function(sin cos tan) logarithmic function (ln(x) log(base,x))"
+  ],
+  "funcplace": "univariate function expression",
+  "cal": "calculate",
+  "funcerrmsg": "Incorrect Expression",
+  "success": "Success",
+  "calculateresult": "calculate result"
+}

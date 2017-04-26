@@ -1,0 +1,8 @@
+{
+  "toolname": "在线XML JSON互相转换",
+  "description": "JSON和XML和我们最常用的两种信息传输格式，但是有些时候，我们却需要两者之间的转换，方便我们的工作",
+  "jsonplace": "JSON代码",
+  "xmlplace": "XML代码",
+  "j2x": "将JSON转为XML",
+  "x2j": "将XML转为JSON"
+}

@@ -4,7 +4,7 @@
     <div class="mdui-collapse-item <% if (pagetype == 'cate') {if (cate == i){%>mdui-list-item-active<% } }%>" onclick="window.location='/cate/<%= i %>'">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <i class="mdui-list-item-icon"></i>
-        <div class="mdui-list-item-content"><%= __('cate.' + i, lang) %><%= __('tool', lang) %></div>
+        <div class="mdui-list-item-content"><%= __('cate.' + i, lang) %><%= __('tool', lang) %> (<%= cates[i].length %>)</div>
       </div>
     </div>
     <% } %>

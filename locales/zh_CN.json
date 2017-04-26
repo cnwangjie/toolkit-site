@@ -19,7 +19,8 @@
       "minify": "压缩"
     },
     "cate": {
-      "developer": "开发者"
+      "developer": "开发者",
+      "math": "数学"
     }
   }
 }

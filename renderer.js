@@ -93,9 +93,16 @@ let rendertool = (req, res, next) => {
         next()
         return
     }
+
     for (let key in tooldata.script) {
         if (tooldata.script[key].charAt(0) == '@') {
             tooldata.script[key] = tooldata.script[key].replace('@', `/${tool}/static/`)
+        }
+    }
+
+    for (let key in tooldata.css) {
+        if (tooldata.css[key].charAt(0) == '@') {
+            tooldata.css[key] = tooldata.css[key].replace('@', `/${tool}/static/`)
         }
     }
 
@@ -140,6 +147,7 @@ let rendertool = (req, res, next) => {
             data[key] = tools[tool].i18n[toollang][key]
         }
     }
+
     res.render('tool.ejs', data)
     next()
 }

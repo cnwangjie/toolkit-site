@@ -1,0 +1,8 @@
+{
+  "toolname": "convert between XML and JSON online",
+  "description": "This program could convert code between XML and JSON",
+  "jsonplace": "JSON code here",
+  "xmlplace": "XML code here",
+  "j2x": "convert JSON to XML",
+  "x2j": "convert XML to JSON"
+}

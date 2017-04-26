@@ -1,24 +1,36 @@
 <% pagetype = 'tool' %>
+<% title = toolname %>
 <% if (typeof csslist != 'object') csslist = [] %>
 <%- include('layout/head', {
-    csslist: csslist,
-    title: toolname
+    csslist: csslist
 }) %>
 <%- include('layout/appbar') %>
 <%- include('layout/drawer') %>
 <%- include('layout/i18n') %>
 
+
 <div class="mdui-container main">
   <h1><%= toolname %></h1>
-  <p class="description"><%= description %></p>
+  <div class="description mdui-typo">
+    <% if (typeof description == 'string') { %>
+      <%= description %>
+    <% } else if ('length' in description) { %>
+      <ul>
+      <% description.forEach(function(i) { %>
+        <li><%= i %></li>
+      <% }) %>
+      </ul>
+    <% } %>
+  </div>
   <% if (typeof similartag != 'undefined') { %>
-  <div class="similartag">
+  <div class="similartag mdui-typo">
     <div class="similartag-desc"><%= __('similartag', lang) %></div>
     <% similartag.forEach(function(i) { %>
     <a href="/<%= i.tool %>" target="_blank"><%= i.toolname %></a>
     <% }) %>
   </div>
   <% } %>
+
   <%- include(tpl) %>
 
 </div>

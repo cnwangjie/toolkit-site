@@ -1,0 +1,12 @@
+{
+  "toolname": "一元函数自动求解器",
+  "description": [
+    "自动求解一元函数",
+    "支持加+ 减- 乘* 除/ 乘方^ 三角函数 对数函数ln(x)和log(base,x)"
+  ],
+  "funcplace": "一元函数表达式",
+  "cal": "计算",
+  "funcerrmsg": "表达式错误",
+  "success": "成功",
+  "calculateresult": "计算结果"
+}

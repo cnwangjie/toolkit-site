@@ -1,0 +1,28 @@
+<script>
+var funcerrmsg = '<%= funcerrmsg %>'
+var success = '<%= success %>'
+var calculateresult = '<%= calculateresult %>'
+</script>
+<style>
+#result {
+  display: block;
+  min-height: 30px;
+  line-height: 30px;
+  padding: 10px;
+  background: #fcfcfc;
+}
+
+#func {
+  display: inline-block;
+  width: 300px;
+}
+</style>
+<div class="mdui-textfield">
+  <input class="mdui-textfield-input" type="text" id="func" placeholder="<%= funcplace %>" value="x^2 + 2*x - 8"></input>
+  <strong>= 0</strong>
+</div>
+<p>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="cal()"><%= cal %></button>
+</p>
+<div id="result">
+</div>

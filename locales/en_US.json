@@ -19,7 +19,8 @@
       "minify": "minify"
     },
     "cate": {
-      "developer": "developer"
+      "developer": "developer",
+      "math": "mathmatics"
     }
   }
 }

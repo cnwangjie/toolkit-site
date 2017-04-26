@@ -1,0 +1,6 @@
+{
+  "toolname": "在线base64转换",
+  "description": "本工具可以将字符串做base64编码加密，或者将base64加密之后的字符串还原。",
+  "htmlplace": "贴入要转换的html代码",
+  "scriptplace": "转换之后的代码"
+}

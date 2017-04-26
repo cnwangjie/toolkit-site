@@ -8,7 +8,17 @@ let toolsloader = () => {
     global.tools = {}
     let toolsdir = fs.readdirSync('./tools')
     toolsdir.map((i) => {
-        let tmpdata = JSON.parse(fs.readFileSync(`./tools/${i}/tool.json`))
+        try {
+            var tmpdata = JSON.parse(fs.readFileSync(`./tools/${i}/tool.json`))
+        } catch (e) {
+            console.log(`load tool ${i} error`)
+            return
+        }
+
+        if (tmpdata.display == 'none') {
+            return
+        }
+
         tools[i] = tmpdata
         tools[i].i18n = {}
         let localesdir = fs.readdirSync(`./tools/${i}/locales`)

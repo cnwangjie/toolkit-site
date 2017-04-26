@@ -22,12 +22,10 @@
 }
 
 .similartag a {
-  display: inline-block;
-  padding: 0 4px;
-  text-decoration: none;
-  color: #15c;
+  margin: 0 12px;
+  white-space: nowrap;
 }
-
+/*
 .similartag a:visited {
   color: #61c;
 }
@@ -39,7 +37,7 @@
 
 .similartag a:active {
   color: #d14836;
-}
+}*/
 
 .mdui-card {
   margin: 4px 0;

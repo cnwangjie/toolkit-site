@@ -1,0 +1,6 @@
+{
+  "toolname": "convert html to script",
+  "description": "This program let you convert your HTML in various scripting languages such as: HTML to PHP, HTML to Javascript and HTML to ASP.",
+  "htmlplace": "paste html code to be convert",
+  "scriptplace": "convert result here"
+}
