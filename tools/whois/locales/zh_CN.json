@@ -1,0 +1,6 @@
+{
+  "toolname": "WHOIS 在线查询",
+  "description": "在线查询域名的WHOIS信息",
+  "domain": "域名",
+  "query": "查询"
+}

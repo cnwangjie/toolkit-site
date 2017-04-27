@@ -20,7 +20,8 @@
     },
     "cate": {
       "developer": "开发者",
-      "math": "数学"
+      "math": "数学",
+      "webmaster": "站长"
     }
   }
 }

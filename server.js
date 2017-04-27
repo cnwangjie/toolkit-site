@@ -1,6 +1,8 @@
 // TODO config
 // TODO search
-// XXX fix route bug; more new tools; add some comments; some new feature of tool
+// TODO tool verify tool
+// TODO server proccess manager
+// XXX fix another route bug; add more new tools; add requirement attribute of tool
 const express = require('express')
      ,_ = require('lodash')
      ,port = 8088
@@ -24,9 +26,6 @@ i18n.init()
 console.log(`\u001b[32m\u2714\u001b[39m i18n sources loaded!`)
 global.__ = i18n.__
 
-// init toolsdata
-loader()
-
 // bind template render
 let renderhome = renderer.homerenderer
 let rendercate = renderer.caterenderer
@@ -46,6 +45,9 @@ app.use(function addStartTime(req, res, next) {
     req.startTime = Date.now()
     next()
 })
+
+// init toolsdata (when load tool api will use body so run loader after register middleware)
+loader()
 
 // 获取解析funcpath
 app.use('*', function pathParser(req, res, next) {

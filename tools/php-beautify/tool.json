@@ -18,5 +18,8 @@
   ],
   "cate": [
     "developer"
+  ],
+  "requirement": [
+    "php"
   ]
 }

@@ -20,7 +20,8 @@
     },
     "cate": {
       "developer": "developer",
-      "math": "mathmatics"
+      "math": "mathmatics",
+      "webmaster": "webmaster"
     }
   }
 }

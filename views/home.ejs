@@ -3,7 +3,7 @@
     csslist: [
 
     ],
-    title: title
+    title: title,
 }) %>
 <%- include('layout/appbar') %>
 <%- include('layout/drawer') %>
@@ -43,10 +43,11 @@
       </div>
       <% }) %>
   </div>
-
   <% } %>
-</div>
 
+</div>
+<div class="footer mdui-color-theme">
+</div>
 
 <% if (typeof scriptlist != 'object') scriptlist = [] %>
 <% if (typeof script != 'string') script = null %>

@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <% if (typeof metalist != 'undefined') metalist.forEach(function(i) { %>
+  <meta<% for (let key in i) { %> <%= key %>="<%= i[key] %>"<% } %>></link>
+  <% }) %>
   <title><%= title %> | <%= sitename %></title>
   <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
   <link rel="stylesheet" href="/static/css/mdui.min.css"></link>

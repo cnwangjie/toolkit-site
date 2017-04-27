@@ -2,7 +2,13 @@
 <% title = toolname %>
 <% if (typeof csslist != 'object') csslist = [] %>
 <%- include('layout/head', {
-    csslist: csslist
+    csslist: csslist,
+    metalist: [
+        {
+            name: "description",
+            content: typeof description == 'object' ? description[0] : description,
+        }
+    ]
 }) %>
 <%- include('layout/appbar') %>
 <%- include('layout/drawer') %>

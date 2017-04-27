@@ -1,16 +1,17 @@
 <% pagetype = 'tool' %>
+<% title = catename %>
 <%- include('layout/head', {
     csslist: [
 
     ],
-    title: catename
+    title: title
 }) %>
 <%- include('layout/appbar') %>
 <%- include('layout/drawer') %>
 <%- include('layout/i18n') %>
 
 <div class="mdui-container main">
-  <h1><%= catename %></h1>
+  <h1><%= catename %><%= __('tool', lang) %></h1>
   <% if (typeof items == 'object') { %>
   <div class="mdui-row">
       <% items.forEach(function(item) { %>
@@ -19,10 +20,10 @@
           <div class="mdui-card-header">
             <div class="mdui-card-header-title"><%= item.toolname %></div>
             <div class="mdui-card-header-subtitle">
-              <% if (typeof description == 'string') { %>
-                <%= description %>
-              <% } else if (length in description) { %>
-                <%= description[0] %>
+              <% if (typeof item.description == 'string') { %>
+                <%= item.description %>
+              <% } else if ('length' in item.description) { %>
+                <%= item.description[0] %>
               <% } %>
             </div>
           </div>

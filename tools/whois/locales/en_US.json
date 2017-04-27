@@ -1,0 +1,6 @@
+{
+  "toolname": "whois lookup online",
+  "description": "lookup the whois of the domain online",
+  "domain": "domain",
+  "query": "query"
+}

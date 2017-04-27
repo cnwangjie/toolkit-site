@@ -44,6 +44,7 @@ let toolsloader = () => {
 
         if (fs.existsSync(`./tools/${i}/api.js`)) {
             app.use(`/${i}/api`, require(`./tools/${i}/api.js`))
+            console.log(`load api of ${i}`)
         }
     })
 }

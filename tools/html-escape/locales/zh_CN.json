@@ -1,0 +1,7 @@
+{
+  "toolname": "html在线转义",
+  "description": "这个工具可以转义和解析html中的特殊字符",
+  "escape": "转义",
+  "unescape": "逆转义",
+  "errormsg": "错误"
+}
