@@ -1,0 +1,6 @@
+{
+  "toolname": "Online DNS Lookup Service",
+  "description": "This service let you get the DNS information of a domain name. This tool gets the DNS records of a domain name by looking at the domain's name server.",
+  "domain": "domain",
+  "get": "Get"
+}

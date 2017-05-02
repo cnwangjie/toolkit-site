@@ -1,0 +1,5 @@
+{
+  "toolname": "Online HTTP Header Fields Viewer",
+  "description": "This tool let you get http fields of a page. HTTP headers contain some informations like the content type, the server configuration, the page status...",
+  "get": "Get"
+}

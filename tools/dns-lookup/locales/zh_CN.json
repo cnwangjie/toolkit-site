@@ -1,0 +1,6 @@
+{
+  "toolname": "在线 DNS lookup 服务",
+  "description": "本服务可以为你查询一个域名的dns信息",
+  "domain": "域名",
+  "get": "查询"
+}

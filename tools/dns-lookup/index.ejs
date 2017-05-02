@@ -1,0 +1,39 @@
+<style>
+#result {
+  display: block;
+  min-height: 200px;
+  padding: 15px;
+  background: #fcfcfc;
+}
+
+#result .type {
+  display: inline-block;
+  min-width: 80px;
+  height: 20px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+#result .value {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+}
+</style>
+
+<div class="mdui-textfield">
+  <label class="mdui-textfield-label"><%= domain %></label>
+  <input class="mdui-textfield-input" type="text" id="domain" placeholder="<%= domain %>" value="google.com" focused></input>
+</div>
+<div>
+  <button id="btn" class="mdui-btn mdui-btn-raised mdui-ripple" onclick="s()"><%= get %></button>
+</div>
+<div class="mdui-tab mdui-tab-full-width" id="tab">
+  <a href="#text" id="tab0" class="mdui-ripple">text</a>
+  <a href="#json" id="tab1" class="mdui-ripple">json</a>
+</div>
+<div id="result">
+</div>
+<div class="mdui-textfield" id="jsonresult" style="display:none;">
+  <textarea class="mdui-textfield-input"></textarea>
+</div>
