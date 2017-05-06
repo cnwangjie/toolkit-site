@@ -1,5 +1,20 @@
 const fs = require('fs')
 
+let initdata = ({funcpath, type, lang, title}) => {
+    return {
+        gaid: DEBUG ? undefined : config.gaid,
+        funcpath,
+        type,
+        sitename,
+        tools,
+        cates,
+        langs: langlist,
+        lang,
+        title,
+        __,
+    }
+}
+
 let renderhome = (req, res, next) => {
     let lang = req.lang || 'en_US'
     let newitems = Object.keys(tools).sort((a, b) => {
@@ -12,18 +27,14 @@ let renderhome = (req, res, next) => {
             description: i18n.description
         }
     })
-    res.render('home.ejs', {
+    let data = initdata({
         funcpath: '/',
         type: 'home',
-        sitename: sitename,
         title: __('homepagetitle', lang),
-        newitems: newitems,
-        langs: langlist,
-        cates: cates,
-        tools: tools,
-        lang: lang,
-        __: __,
+        lang,
     })
+    data.newitems = newitems
+    res.render('home.ejs', data)
     next()
 }
 
@@ -31,15 +42,13 @@ let rendercate = (req, res, next) => {
     let cate = req.params.cate
     let lang = req.lang || 'en_US'
     if (!(cate in cates)) {
-        res.status(404).render('notfound.ejs', {
+        let data = initdata({
             funcpath: req.funcpath,
             type: 'cate',
-            sitename: sitename,
             title: __('notfoundpagetitle', lang),
-            langs: langlist,
-            lang: lang,
-            __: __,
+            lang,
         })
+        res.status(404).render('notfound.ejs', data)
         next()
     } else {
         let items = []
@@ -56,17 +65,15 @@ let rendercate = (req, res, next) => {
             }
             items.push(item)
         })
-        res.render('cate.ejs', {
+        let data = initdata({
             funcpath: req.funcpath,
             type: 'cate',
-            sitename: sitename,
-            catename: __(`cate.${cate}`, lang),
-            items: items,
-            cates: cates,
-            langs: langlist,
-            lang: lang,
-            __: __,
+            title: __(`cate.${cate}`, lang),
+            lang,
         })
+        data.catename = __(`cate.${cate}`, lang)
+        data.items = items
+        res.render('cate.ejs', data)
         next()
     }
 }
@@ -75,16 +82,13 @@ let rendertool = (req, res, next) => {
     let tool = req.params.toolname
     let lang = req.lang || 'en_US'
     if (!fs.existsSync(`./tools/${tool}/tool.json`)) {
-        res.status(404).render('notfound.ejs', {
+        let data = initdata({
             funcpath: req.funcpath,
-            type: 'tool',
-            sitename: sitename,
             title: __('notfoundpagetitle', lang),
-            cates: cates,
-            langs: langlist,
-            lang: lang,
-            __: __,
+            type: 'tool',
+            lang,
         })
+        res.status(404).render('notfound.ejs', data)
         next()
         return
     }
@@ -124,20 +128,18 @@ let rendertool = (req, res, next) => {
             toolname: tmptoolname
         }
     })
-    let data = {
+    let data = initdata({
         funcpath: req.funcpath,
-        sitename: sitename,
-        tool: tool,
-        tpl: `../tools/${tool}/index`,
-        csslist: tooldata.css || [],
-        scriptlist: tooldata.script || [],
-        cates: cates,
-        thistag: thistags,
-        similartag: similartag,
-        langs: langlist,
-        lang: lang,
-        __: __,
-    }
+        title: undefined,
+        type: 'tool',
+        lang,
+    })
+    data.tool = tool
+    data.tpl = `../tools/${tool}/index`
+    data.csslist = tooldata.css || []
+    data.scriptlist = tooldata.script || []
+    data.thistag = thistags
+    data.similartag = similartag
     let toollang = 'en_US'
     if (lang in tools[tool].i18n) {
         toollang = lang
@@ -176,27 +178,26 @@ let rendersearch = (req, res, next) => {
         }
     }
 
-    let data = {
+    let data = initdata({
         funcpath: req.funcpath,
-        sitename: sitename,
-        tools: tools,
-        cates: cates,
-        langs: langlist,
-        lang: lang,
-        q: q,
-        result: result,
-        __: __,
-    }
+        title: undefined,
+        type: 'search',
+        lang,
+    })
+    data.q = q
+    data.result = result
 
     res.render('search.ejs', data)
     next()
 }
 
-let renderer = {
-    homerenderer: renderhome,
-    caterenderer: rendercate,
-    toolrenderer: rendertool,
-    searchrenderer: rendersearch,
+let renderer = (name) => {
+    return renderer[name]
 }
 
-module.exports = renderer;
+renderer.home = renderer.homerenderer = renderhome
+renderer.cate = renderer.caterenderer = rendercate
+renderer.tool = renderer.toolrenderer = rendertool
+renderer.search = renderer.searchrenderer = rendersearch
+
+module.exports = renderer
