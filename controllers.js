@@ -13,8 +13,10 @@ controllers.staticFileOfTool = function staticFileOfTool(req, res, next) {
     res.sendFile(`./tools/${toolname}/static/${source}`, {
         root: './',
         dontfiles: 'deny',
+    }, (err) => {
+        next()
+        return
     })
-    next()
 }
 
 controllers.catePage = function catePage(req, res, next) {

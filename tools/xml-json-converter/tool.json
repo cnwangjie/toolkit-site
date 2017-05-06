@@ -6,9 +6,11 @@
     "@script.js"
   ],
   "tag": [
-    "math"
+    "xml",
+    "json",
+    "converter"
   ],
   "cate": [
-    "math"
+    "developer"
   ]
 }

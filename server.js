@@ -1,9 +1,5 @@
 // TODO tool verify tool
 // TODO server proccess manager
-// TODO !!! sitemap.txt
-// TODO !!! robot.txt
-// TODO !!! static file
-// XXX add config, install feature; file structure rebuilt; ready to deploy
 const express = require('express')
      ,_ = require('lodash')
      ,port = 8088
