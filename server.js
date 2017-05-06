@@ -1,5 +1,8 @@
 // TODO tool verify tool
 // TODO server proccess manager
+// TODO !!! sitemap.txt
+// TODO !!! robot.txt
+// TODO !!! static file
 // XXX add config, install feature; file structure rebuilt; ready to deploy
 const express = require('express')
      ,_ = require('lodash')
@@ -12,6 +15,7 @@ const express = require('express')
      ,i18n = require('./i18n.js')
      ,loader = require('./loader.js')
      ,controllers = require('./controllers.js')
+     ,helper = require('./helper.js')
 
 global.config = JSON.parse(fs.readFileSync('./config.json'))
 
@@ -37,6 +41,7 @@ app.set('view engine', 'html')
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser())
 app.use('/static', express.static('./static'))
+app.use('/', express.static('./public'))
 app.use(function addStartTime(req, res, next) {
     req.startTime = Date.now()
     next()
@@ -115,4 +120,5 @@ app.use('*', function logger(req, res) {
 })
 
 console.log('\u001b[32m\u2714\u001b[39m all routes registered!')
-console.log(app._router.stack)
+helper.genSitemap()
+helper.genRobots()

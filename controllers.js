@@ -1,4 +1,6 @@
 const renderer = require('./renderer.js')
+     ,fs = require('fs')
+     ,path = require('path')
 let controllers = {}
 
 controllers.staticFileOfTool = function staticFileOfTool(req, res, next) {

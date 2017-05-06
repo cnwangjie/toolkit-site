@@ -1,5 +1,5 @@
 const fs = require('fs')
-     ,configfile = './config.js'
+     ,configfile = './config.json'
      ,defaultconfig = {
         debug: false,
         gaid: '0',
