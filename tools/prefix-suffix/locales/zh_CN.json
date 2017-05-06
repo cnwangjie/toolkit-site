@@ -1,0 +1,11 @@
+{
+  "toolname": "添加前缀/后缀",
+  "description": "给每行添加前缀或后缀的工具",
+  "prefix": "前缀",
+  "suffix": "后缀",
+  "text": "文本",
+  "result": "结果",
+  "add": "添加",
+  "copy": "复制",
+  "clear": "清除所有文本"
+}

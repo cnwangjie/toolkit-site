@@ -13,15 +13,19 @@
     "homepagetitle": "首页",
     "notfoundpagetitle": "找不到这个页面",
     "newtools": "最新工具",
+    "searchresultof": "$1 的搜索结果:",
+    "noresult": "没有找到",
     "tag": {
       "beautify": "美化",
       "converter": "转化",
-      "minify": "压缩"
+      "minify": "压缩",
+      "text": "文本"
     },
     "cate": {
       "developer": "开发者",
       "math": "数学",
-      "webmaster": "站长"
+      "webmaster": "站长",
+      "text": "文本"
     }
   }
 }

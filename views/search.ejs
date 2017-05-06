@@ -1,0 +1,37 @@
+<% pagetype = 'search' %>
+<% title = __('searchresultof', lang).replace('$1', q) %>
+<%- include('layout/head', {
+    csslist: [
+
+    ],
+    title: title,
+}) %>
+<%- include('layout/appbar') %>
+<%- include('layout/drawer') %>
+<%- include('layout/i18n') %>
+
+<div class="mdui-container main">
+  <h1><%= title %></h1>
+  <div class="mdui-row">
+      <% result.forEach(function(j) { %>
+      <% let i18n = lang in tools[j].i18n ? tools[j].i18n[lang] : tools[j].i18n['en_US'] %>
+      <div class="mdui-col-sm-6 mdui-col-md-4 mdui-col-lg-3">
+        <div class="mdui-card item">
+          <div class="mdui-card-header">
+            <div class="mdui-card-header-title"><%= i18n.toolname %></div>
+            <div class="mdui-card-header-subtitle"><%= i18n.description %></div>
+          </div>
+          <a href="/<%= j %>" title="<%= i18n.description %>" target="_blank"></a>
+        </div>
+      </div>
+      <% }) %>
+  </div>
+
+</div>
+
+<% if (typeof scriptlist != 'object') scriptlist = [] %>
+<% if (typeof script != 'string') script = null %>
+<%- include('layout/foot', {
+    scriptlist: scriptlist,
+    script: script,
+}) %>

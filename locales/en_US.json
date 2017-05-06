@@ -13,15 +13,19 @@
     "homepagetitle": "home",
     "notfoundpagetitle": "notfound",
     "newtools": "new tools",
+    "searchresultof": "search result of $1:",
+    "noresult": "no result",
     "tag": {
       "beautify": "beautify",
       "converter": "converter",
-      "minify": "minify"
+      "minify": "minify",
+      "text": "text"
     },
     "cate": {
-      "developer": "developer",
-      "math": "mathmatics",
-      "webmaster": "webmaster"
+      "developer": "developer ",
+      "math": "mathmatics ",
+      "webmaster": "webmaster ",
+      "text": "text "
     }
   }
 }

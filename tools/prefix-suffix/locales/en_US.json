@@ -1,0 +1,11 @@
+{
+  "toolname": "Add Prefix/Suffix",
+  "description": "Add Prefix and/or Suffix into Each Line",
+  "prefix": "prefix",
+  "suffix": "suffix",
+  "text": "text",
+  "result": "result",
+  "add": "add",
+  "copy": "copy text",
+  "clear": "clear all text"
+}

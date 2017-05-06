@@ -1,0 +1,15 @@
+{
+  "toolname": "Add / Remove Line Breaks",
+  "description": "Add, remove or replace the line breaks of text",
+  "text": "text",
+  "result": "result",
+  "replace": "replace",
+  "replacedes": "replace all line breaks and blank for remove them",
+  "add": "add new line breaks",
+  "encs": "how many characters each break",
+  "whattext": "what text",
+  "before": "before the text",
+  "after": "after the text",
+  "copy": "copy text",
+  "clear": "clear all text"
+}

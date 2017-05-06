@@ -1,0 +1,15 @@
+{
+  "toolname": "统计文本的字符，单词，句子和行数",
+  "description": "这个工具可以帮助你统计你的文本",
+  "text": "文本",
+  "count": "统计",
+  "dncspace": "不要统计空格",
+  "wordf": "单词出现的频率",
+  "character": "字符",
+  "word": "单词",
+  "sentence": "句子",
+  "line": "行数",
+  "total": "总数",
+  "cursor": "指针位置",
+  "selected": "选择的部分"
+}

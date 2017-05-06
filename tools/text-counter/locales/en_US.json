@@ -1,0 +1,15 @@
+{
+  "toolname": "Count Characters, Words, Sentences, Lines",
+  "description": "Count the sum of characters, words, sentences and lines",
+  "text": "text",
+  "count": "count",
+  "dncspace": "do not count spaces",
+  "wordf": "word frequency",
+  "character": "Character",
+  "word": "Word",
+  "sentence": "Sentence",
+  "line": "Line",
+  "total": "Total count",
+  "cursor": "Cursor postion",
+  "selected": "Selected text"
+}

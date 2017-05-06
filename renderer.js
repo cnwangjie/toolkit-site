@@ -152,10 +152,51 @@ let rendertool = (req, res, next) => {
     next()
 }
 
+let rendersearch = (req, res, next) => {
+    let lang = req.lang || 'en_US'
+    let q = req.query.q
+    let re = new RegExp(q, 'i')
+    let result = []
+    for (let key in tools) {
+        let i = tools[key]
+        let text = lang in i.i18n ? i.i18n[lang] : i.i18n['en_US']
+        let inname = re.test(text.toolname)
+        let indes = false
+        if (typeof text.description == 'string') {
+            indes = re.test(text.description)
+        } else {
+            text.description.map(j => {
+                if (re.test(j)) {
+                    indes = true
+                }
+            })
+        }
+        if (inname || indes) {
+            result.push(key)
+        }
+    }
+
+    let data = {
+        funcpath: req.funcpath,
+        sitename: sitename,
+        tools: tools,
+        cates: cates,
+        langs: langlist,
+        lang: lang,
+        q: q,
+        result: result,
+        __: __,
+    }
+
+    res.render('search.ejs', data)
+    next()
+}
+
 let renderer = {
     homerenderer: renderhome,
     caterenderer: rendercate,
     toolrenderer: rendertool,
+    searchrenderer: rendersearch,
 }
 
 module.exports = renderer;

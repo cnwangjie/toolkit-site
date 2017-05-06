@@ -1,8 +1,7 @@
 // TODO config
-// TODO search
 // TODO tool verify tool
 // TODO server proccess manager
-// XXX fix another route bug; add more new tools; add requirement attribute of tool
+// XXX add requirement check feature; search feature completed; add more tools
 const express = require('express')
      ,_ = require('lodash')
      ,port = 8088
@@ -30,6 +29,7 @@ global.__ = i18n.__
 let renderhome = renderer.homerenderer
 let rendercate = renderer.caterenderer
 let rendertool = renderer.toolrenderer
+let rendersearch = renderer.searchrenderer
 
 app.listen(port)
 console.log(`\u001b[32m\u2714\u001b[39m listening port: ${port}`)
@@ -130,6 +130,20 @@ app.get('/cate/:cate', (req, res, next) => {
     rendercate(req, res, next)
 })
 
+// 带语言的搜索页
+app.get('/:lang/search', (req, res, next) => {
+    if (res.headersSent) {
+        next()
+        return
+    }
+    let q = req.query.q || null
+    if (!q) {
+        res.redirect('/')
+        next()
+    }
+    rendersearch(req, res, next)
+})
+
 // 带语言的工具页
 app.get('/:lang/:toolname', (req, res, next) => {
     if (res.headersSent) {
@@ -155,6 +169,20 @@ app.get('/:lang/home', (req, res, next) => {
         }
     }
     next()
+})
+
+// 搜索页
+app.get('/search', (req, res, next) => {
+    if (res.headersSent) {
+        next()
+        return
+    }
+    let q = req.query.q || null
+    if (!q) {
+        res.redirect('/')
+        next()
+    }
+    rendersearch(req, res, next)
 })
 
 // 工具页

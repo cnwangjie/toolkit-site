@@ -1,0 +1,19 @@
+<div class="mdui-textfield">
+  <textarea class="mdui-textfield-input" id="text" placeholder="<%= text %>"></textarea>
+</div>
+<div class="mdui-textfield mdui-textfield-floating-label">
+  <label class="mdui-textfield-label"><%= prefix %></label>
+  <input class="mdui-textfield-input" id="prefix" type="text"/>
+</div>
+<div class="mdui-textfield mdui-textfield-floating-label">
+  <label class="mdui-textfield-label"><%= suffix %></label>
+  <input class="mdui-textfield-input" id="suffix" type="text"/>
+</div>
+<p>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="a()"><%= add %></button>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="s()"><%= copy %></button>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="c()"><%= clear %></button>
+</p>
+<div class="mdui-textfield">
+  <textarea class="mdui-textfield-input" id="result" placeholder="<%= result %>"></textarea>
+</div>

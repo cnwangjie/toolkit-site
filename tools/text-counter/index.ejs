@@ -1,0 +1,46 @@
+<div class="mdui-table-fluid">
+  <table class="mdui-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= character %></th>
+        <th><%= word %></th>
+        <th><%= sentence %></th>
+        <th><%= line %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= total %></td>
+        <td id="tc">0</td>
+        <td id="tw">0</td>
+        <td id="ts">0</td>
+        <td id="tl">0</td>
+      </tr>
+      <tr>
+        <td><%= cursor %></td>
+        <td id="cc">0</td>
+        <td id="cw">0</td>
+        <td id="cs">0</td>
+        <td id="cl">0</td>
+      </tr>
+      <tr>
+        <td><%= selected %></td>
+        <td id="sc">0</td>
+        <td id="sw">0</td>
+        <td id="ss">0</td>
+        <td id="sl">0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<label class="mdui-checkbox">
+  <input type="checkbox" id="dncs"/>
+  <i class="mdui-checkbox-icon"></i>
+  <%= dncspace %>
+</label>
+
+<div class="mdui-textfield">
+  <textarea class="mdui-textfield-input" id="text" placeholder="<%= text %>"></textarea>
+</div>
