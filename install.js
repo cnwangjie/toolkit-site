@@ -7,7 +7,7 @@ const fs = require('fs')
      }
 
 
-if (fs.existSync(configfile)) {
+if (fs.existsSync(configfile)) {
     fs.writeFileSync(configfile, JSON.stringify(defaultconfig, null, 4))
 }
 
