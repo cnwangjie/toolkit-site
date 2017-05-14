@@ -1,5 +1,6 @@
 // TODO tool verify tool
 // TODO server proccess manager
+// TODO config i18n
 const express = require('express')
      ,_ = require('lodash')
      ,port = 8088
@@ -15,10 +16,11 @@ const express = require('express')
 
 global.config = JSON.parse(fs.readFileSync('./config.json'))
 
-global.DEBUG = config.debug
+global.DEBUG = config.debug || true
 
 global.app = express()
-global.sitename = 'toolkit-site'
+global.sitename = config.sitename || 'SITE_NAME'
+global.moreiconlinks = config.moreiconlinks || []
 
 let log = DEBUG ? console.log : ()=>{}
 

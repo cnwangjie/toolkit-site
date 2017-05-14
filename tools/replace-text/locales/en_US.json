@@ -1,0 +1,14 @@
+{
+  "toolname": "Find and Replace Text",
+  "description": "This tool can help you find and replace text and support regular expression",
+  "text": "text",
+  "tofind": "find (text / regular expression)",
+  "replaceto": "replace to",
+  "result": "result",
+  "replace": "replace",
+  "usere": "use regular expression",
+  "global": "global match",
+  "ignorecase": "ignore case",
+  "copy": "copy text",
+  "clear": "clear all text"
+}

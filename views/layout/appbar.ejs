@@ -12,15 +12,11 @@
       <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#i18n'}"><i class="mdui-icon material-icons">&#xe894;</i></span>
       <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-menu="{target: '#header-menu', fixed: true}"><i class="mdui-icon material-icons">&#xe5d4;</i></span>
       <ul class="mdui-menu" id="header-menu">
+        <% moreiconlinks.forEach(function(i) { %>
         <li class="mdui-menu-item">
-          <a href="#" class="mdui-ripple">Toolkit</a>
+          <a href="<%= i.href %>" class="mdui-ripple"<%= i.newtab ? ' target="_blank"' : '' %>><%= i.name %></a>
         </li>
-        <li class="mdui-menu-item">
-          <a href="#" target="_blank" class="mdui-ripple">About</a>
-        </li>
-        <li class="mdui-menu-item">
-          <a href="#" target="_blank" class="mdui-ripple">Contact</a>
-        </li>
+        <% }) %>
       </ul>
     </div>
   </header>

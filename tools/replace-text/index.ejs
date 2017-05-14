@@ -1,0 +1,34 @@
+<div class="mdui-textfield">
+  <textarea class="mdui-textfield-input" id="text" placeholder="<%= text %>"></textarea>
+</div>
+<div class="mdui-textfield mdui-textfield-floating-label mintext">
+  <label class="mdui-textfield-label"><%= tofind %></label>
+  <input class="mdui-textfield-input" id="tf" type="text">
+</div>
+<label class="mdui-checkbox">
+  <input type="checkbox" id="ure" checked>
+  <i class="mdui-checkbox-icon"></i>
+  <%= usere %>
+</label>
+<label class="mdui-checkbox">
+  <input type="checkbox" id="glo" checked>
+  <i class="mdui-checkbox-icon"></i>
+  <%= global %>
+</label>
+<label class="mdui-checkbox">
+  <input type="checkbox" id="ica">
+  <i class="mdui-checkbox-icon"></i>
+  <%= ignorecase %>
+</label>
+<div class="mdui-textfield mdui-textfield-floating-label mintext">
+  <label class="mdui-textfield-label"><%= replaceto %></label>
+  <input class="mdui-textfield-input" id="rt" type="text">
+</div>
+<p>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="e()"><%= replace %></button>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="s()"><%= copy %></button>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="c()"><%= clear %></button>
+</p>
+<div class="mdui-textfield">
+  <textarea class="mdui-textfield-input" id="result" placeholder="<%= result %>"></textarea>
+</div>

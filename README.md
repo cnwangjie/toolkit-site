@@ -79,3 +79,20 @@ toolkit-site
  - `description`可以为一个字符串数组，分类页的工具卡片将会取其中第一个字符串为子标题。而工具页则会以一个无序列表输出该数组
  - 其他条目会在模板中自动加载可以直接使用`<%= 变量名 %>`
  - 字段名应当全部为小写字母
+
+### Usage
+
+暂时如下
+0. 运行 `node install.js`
+0. 修改 `config.json`
+0. 运行 `pm2 start server`
+
+### 配置文件
+
+```js
+{
+    debug: false, // 开发模式
+    gaid: '0', // Google Analytics ID
+    domain: 'localhost', // 域名
+}
+```

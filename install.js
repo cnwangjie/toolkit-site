@@ -4,6 +4,7 @@ const fs = require('fs')
         debug: false,
         gaid: '0',
         domain: 'localhost',
+        sitename: 'toolkit-space',
      }
 
 

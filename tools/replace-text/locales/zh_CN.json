@@ -1,0 +1,14 @@
+{
+  "toolname": "查找/替换文本",
+  "description": "这个工具可以帮助你查找并替换文本，并且支持正则表达式",
+  "text": "文本",
+  "tofind": "查找(文本/正则表达式)",
+  "replaceto": "替换为",
+  "result": "结果",
+  "replace": "替换",
+  "usere": "使用正则表达式",
+  "global": "全局匹配",
+  "ignorecase": "忽视大小写",
+  "copy": "复制",
+  "clear": "清除"
+}

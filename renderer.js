@@ -3,6 +3,7 @@ const fs = require('fs')
 let initdata = ({funcpath, type, lang, title}) => {
     return {
         gaid: DEBUG ? undefined : config.gaid,
+        moreiconlinks,
         funcpath,
         type,
         sitename,
