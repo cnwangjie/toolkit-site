@@ -1,0 +1,17 @@
+{
+  "date": "2017-05-15",
+  "css": [
+  ],
+  "script": [
+    "@qrcode.js",
+    "@script.js"
+  ],
+  "tag": [
+    "common",
+    "qrcode",
+    "generater"
+  ],
+  "cate": [
+    "common"
+  ]
+}

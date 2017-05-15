@@ -1,0 +1,14 @@
+{
+  "toolname": "二维码生成器",
+  "description": "轻松的生成一个二维码图片",
+  "message": "信息",
+  "generate": "生成",
+  "advanced": "高级设置",
+  "size": "大小",
+  "correctlevel": "纠错等级",
+  "background": "背景色",
+  "foreground": "前景色",
+  "pdground": "三个点的颜色",
+  "image": "中间的图片的URL",
+  "imagesize": "中间的图片的大小"
+}

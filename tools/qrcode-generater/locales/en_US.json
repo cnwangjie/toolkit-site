@@ -1,0 +1,14 @@
+{
+  "toolname": "Qrcode Generater",
+  "description": "This tool can help you generate a qrcode easily",
+  "message": "message",
+  "generate": "generate",
+  "advanced": "advanced",
+  "size": "size",
+  "correctlevel": "correct level",
+  "background": "background color",
+  "foreground": "frontground color",
+  "pdground": "3 points color",
+  "image": "url of center image",
+  "imagesize": "size of center image"
+}

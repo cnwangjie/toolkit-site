@@ -1,6 +1,8 @@
 // TODO tool verify tool
 // TODO server proccess manager
 // TODO config i18n
+// TODO DevOps auto deplay
+// TODO webhooks auto send twitter
 const express = require('express')
      ,_ = require('lodash')
      ,port = 8088

@@ -19,13 +19,16 @@
       "beautify": "beautify",
       "converter": "converter",
       "minify": "minify",
-      "text": "text"
+      "text": "text",
+      "common": "common",
+      "generater": "generater"
     },
     "cate": {
       "developer": "developer ",
       "math": "mathmatics ",
       "webmaster": "webmaster ",
-      "text": "text "
+      "text": "text ",
+      "common": "common "
     }
   }
 }

@@ -19,13 +19,16 @@
       "beautify": "美化",
       "converter": "转化",
       "minify": "压缩",
-      "text": "文本"
+      "text": "文本",
+      "common": "常用",
+      "generater": "生成"
     },
     "cate": {
       "developer": "开发者",
       "math": "数学",
       "webmaster": "站长",
-      "text": "文本"
+      "text": "文本",
+      "common": "常用"
     }
   }
 }

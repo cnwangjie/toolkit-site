@@ -1,0 +1,47 @@
+<div class="mdui-textfield mdui-textfield-floating-label mintext">
+  <label class="mdui-textfield-label"><%= message %></label>
+  <input class="mdui-textfield-input" id="msg" type="text">
+</div>
+<div class="mdui-panel" mdui-panel>
+
+<div class="mdui-panel-item">
+  <div class="mdui-panel-item-header">
+    <div class="mdui-panel-item-title"><%= advanced %></div>
+    <i class="mdui-panel-item-arrow mdui-icon material-icons">&#xe313;</i>
+  </div>
+  <div class="mdui-panel-item-body">
+    <div class="mdui-textfield mdui-textfield-floating-label mintext">
+      <label class="mdui-textfield-label"><%= size %></label>
+      <input class="mdui-textfield-input" id="size" type="number">
+    </div>
+    <div class="mdui-textfield mdui-textfield-floating-label mintext">
+      <label class="mdui-textfield-label"><%= correctlevel %></label>
+      <input class="mdui-textfield-input" id="correctlevel" type="number">
+    </div>
+    <div class="mdui-textfield mdui-textfield-floating-label mintext">
+      <label class="mdui-textfield-label"><%= background %></label>
+      <input class="mdui-textfield-input" id="background" type="text">
+    </div>
+    <div class="mdui-textfield mdui-textfield-floating-label mintext">
+      <label class="mdui-textfield-label"><%= foreground %></label>
+      <input class="mdui-textfield-input" id="foreground" type="text">
+    </div>
+    <div class="mdui-textfield mdui-textfield-floating-label mintext">
+      <label class="mdui-textfield-label"><%= pdground %></label>
+      <input class="mdui-textfield-input" id="pdground" type="text">
+    </div>
+    <div class="mdui-textfield mdui-textfield-floating-label mintext">
+      <label class="mdui-textfield-label"><%= image %></label>
+      <input class="mdui-textfield-input" id="image" type="text">
+    </div>
+    <div class="mdui-textfield mdui-textfield-floating-label mintext">
+      <label class="mdui-textfield-label"><%= imagesize %></label>
+      <input class="mdui-textfield-input" id="imagesize" type="number">
+    </div>
+  </div>
+</div>
+<p>
+  <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="e()"><%= generate %></button>
+</p>
+<div style="text-align:center;" id="re">
+</div>
