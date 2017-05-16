@@ -1,0 +1,10 @@
+{
+  "toolname": "Remove Extra Spaces",
+  "description": "This tool can help you remove extra spaces in a text",
+  "text": "text",
+  "result": "result",
+  "remove": "remove",
+  "copy": "copy text",
+  "clear": "clear all text",
+  "linehead": "remove spaces at the head of a line"
+}

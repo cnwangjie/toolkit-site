@@ -1,0 +1,10 @@
+{
+  "toolname": "去除多余的空格",
+  "description": "这个工具可以帮你去除一段文本中多余的空格",
+  "text": "文本",
+  "result": "结果",
+  "remove": "去除",
+  "copy": "复制",
+  "clear": "清除",
+  "linehead": "去除行首的空格"
+}

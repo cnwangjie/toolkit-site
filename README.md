@@ -37,21 +37,22 @@ toolkit-site
 
 ### 工具规范
 
-目录结构
+#### 目录结构
 
 ```
 └── [tool] (根目录名，即为tool)
+    ├── api.js (工具的后端部分)
     ├── index.ejs (工具前端模板)
     ├── locales (语言文件目录)
     │   ├── en_US.json (默认语言，必须完整存在)
     │   └── zh_CN.json
-    ├── static (静态资源目录，可以使用@加文件名引入)
+    ├── static (静态资源目录，可以在`tool.json`中使用@加文件名引入)
     │   └── script.js
     └── tool.json (配置文件，必须存在)
 
 ```
 
-配置文件
+#### 配置文件
 
 ```js
 {
@@ -73,7 +74,12 @@ toolkit-site
 
 ```
 
-语言文件
+#### api.js文件
+
+ - 作为一个模块，最终导出一个express router类型的对象
+ - 路由实际为`/${toolname}/api/`的子路由，可以自行设置各种路由规则，前端的xhr请求路径正确即可
+
+#### 语言文件
 
  - 必须存在`toolname`和`description`两个条目用于父级模板中工具名和简介的显示
  - `description`可以为一个字符串数组，分类页的工具卡片将会取其中第一个字符串为子标题。而工具页则会以一个无序列表输出该数组
@@ -83,6 +89,7 @@ toolkit-site
 ### Usage
 
 暂时如下
+
 0. 运行 `node install.js`
 0. 修改 `config.json`
 0. 运行 `pm2 start server`

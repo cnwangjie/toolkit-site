@@ -1,0 +1,9 @@
+{
+  "toolname": "去除空行",
+  "description": "这个工具可以帮你去除一段文本中出现的空行",
+  "text": "文本",
+  "result": "结果",
+  "remove": "去除",
+  "copy": "复制",
+  "clear": "清除"
+}

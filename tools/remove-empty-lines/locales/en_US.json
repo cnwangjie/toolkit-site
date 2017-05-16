@@ -1,0 +1,9 @@
+{
+  "toolname": "Remove Empty Lines",
+  "description": "This tool can help you remove empty lines in a text",
+  "text": "text",
+  "result": "result",
+  "remove": "remove",
+  "copy": "copy text",
+  "clear": "clear all text"
+}
