@@ -12,7 +12,8 @@ router.post('/', (req, res, next) => {
         next()
         return
     } else {
-        let cp = child_process.exec(`whois ${domain}`)
+        let cmd = `curl "http://data.alexa.com/data/TCaX/0+qO000fV?cli=10&dat=snba&ver=7.0&cdt=alx_vw=20&wid=31472&act=00000000000&ss=1024×768&bw=639&t=0&ttl=4907&vis=1&rq=23&url=${domain}"`
+        let cp = child_process.exec(cmd)
         let result = ''
         cp.stdout.on('data', (data) => {
             result += data

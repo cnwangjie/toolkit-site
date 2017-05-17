@@ -1,0 +1,27 @@
+<style>
+#result {
+  display: block;
+  font-size: 18px;
+  min-height: 100px;
+  padding: 15px;
+  background: #fcfcfc;
+}
+</style>
+
+<script>
+  var nodata = "<%= nodata %>"
+  var rank = "<%= rank %>"
+  var reach = "<%= reach %>"
+  var delta = "<%= delta %>"
+  var country = "<%= country %>"
+</script>
+
+<div class="mdui-textfield">
+  <label class="mdui-textfield-label"><%= domain %></label>
+  <input class="mdui-textfield-input" type="text" id="domain" placeholder="<%= domain %>" value="toolkit.space" focused></input>
+</div>
+<div>
+  <button id="btn" class="mdui-btn mdui-btn-raised mdui-ripple" onclick="e()"><%= query %></button>
+</div>
+<div id="result">
+</div>

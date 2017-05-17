@@ -1,0 +1,11 @@
+{
+  "toolname": "alexa rank query online",
+  "description": "query the alexa rank of the domain online",
+  "domain": "domain",
+  "query": "query",
+  "rank": "rank",
+  "reach": "reach rank",
+  "delta": "change",
+  "country": "country",
+  "nodata": "no data"
+}

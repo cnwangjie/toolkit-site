@@ -1,0 +1,11 @@
+{
+  "toolname": "ALEXA 排名在线查询",
+  "description": "在线查询ALEXA排名",
+  "domain": "域名",
+  "query": "查询",
+  "rank": "排名",
+  "reach": "达到过的排名",
+  "delta": "变化",
+  "country": "国家",
+  "nodata": "没有数据"
+}
