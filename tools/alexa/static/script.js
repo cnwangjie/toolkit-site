@@ -39,7 +39,9 @@ function e() {
 					re += reach + ': ' + new RegExp('REACH RANK="([0-9]*)"', 'i').exec(data)[1] + '\n'
 					re += delta + ': ' + new RegExp('DELTA="([-+0-9]*)"', 'i').exec(data)[1] + '\n'
 					var cty = new RegExp('NAME="([A-Za-z ]*)" *RANK="([0-9]*)"', 'i').exec(data)
-					re += country + ': ' + cty[2] + ' in ' + cty[1] + '\n'
+					if (cty) {
+						re += country + ': ' + cty[2] + ' in ' + cty[1] + '\n'
+					}
 				}
 				result.innerText = re
     }).fail(function() {

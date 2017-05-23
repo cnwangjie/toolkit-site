@@ -1,0 +1,5 @@
+{
+  "toolname": "scan qrcode online",
+  "description": "scan / parse qrcode online",
+  "select": "select image"
+}

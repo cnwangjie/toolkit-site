@@ -1,0 +1,6 @@
+{
+  "toolname": "将图片反色",
+  "description": "将一个图片转换为反色的图片",
+  "select": "选择图片",
+  "invert": "转换"
+}

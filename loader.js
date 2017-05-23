@@ -1,6 +1,7 @@
 const fs = require('fs')
      ,path = require('path')
      ,child_process = require('child_process')
+     ,express = require('express')
 
 // 注册工具的后端路由 & 读取分类标签信息
 let toolsloader = () => {
@@ -66,6 +67,8 @@ let toolsloader = () => {
                 cates[key] = [i]
             }
         }
+
+        app.use(`/${i}/static/`, express.static(`./tools/${i}/static`))
 
         if (fs.existsSync(`./tools/${i}/api.js`)) {
             app.use(`/${i}/api`, require(`./tools/${i}/api.js`))

@@ -1,0 +1,6 @@
+{
+  "toolname": "invert color of image",
+  "description": "This tool can help invert color of image",
+  "select": "select image",
+  "invert": "invert"
+}

@@ -96,7 +96,7 @@ app.use('*', function langParser(req, res, next) {
 })
 
 // 路由表
-app.get('/:toolname/static/:source', controllers.staticFileOfTool)
+// app.get('/:toolname/static/:source', controllers.staticFileOfTool)
 app.get('/:lang/cate/:cate', controllers.catePage)
 app.get('/:lang/search', controllers.searchPage)
 app.get('/cate/:cate', controllers.catePage)

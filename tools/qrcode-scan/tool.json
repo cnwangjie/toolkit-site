@@ -1,0 +1,16 @@
+{
+  "date": "2017-05-23",
+  "css": [
+  ],
+  "script": [
+    "@all.js",
+    "@script.js"
+  ],
+  "tag": [
+    "common",
+    "qrcode"
+  ],
+  "cate": [
+    "common"
+  ]
+}
