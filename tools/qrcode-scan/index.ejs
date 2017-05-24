@@ -1,6 +1,23 @@
 <p>
-  <input type="file" accept="image/*" id="input"><%= select %></input>
+  <div class="file-field">
+    <div class="btn">
+      <span><%= select %></span>
+      <input type="file"/>
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="file" accept="image/*" id="input"><%= select %></input>
+    </div>
+  </div>
 </p>
-to fix
+
+<style>
+#result {
+  display: block;
+  min-height: 200px;
+  padding: 15px;
+  background: #fcfcfc;
+}
+</style>
+
 <p id="result">
 </p>
