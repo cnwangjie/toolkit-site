@@ -1,8 +1,3 @@
-// TODO tool verify tool
-// TODO server proccess manager
-// TODO config i18n
-// TODO DevOps auto deplay
-// TODO webhooks auto send twitter
 const express = require('express')
      ,_ = require('lodash')
      ,port = 8088
@@ -16,7 +11,7 @@ const express = require('express')
      ,controllers = require('./controllers.js')
      ,helper = require('./helper.js')
 
-global.config = JSON.parse(fs.readFileSync('./config.json'))
+global.config = JSON.parse(fs.readFileSync(path.join(__dirname, './../config.json')))
 
 global.DEBUG = config.debug || true
 
@@ -40,8 +35,8 @@ app.set('view engine', 'html')
 // use basically middleware to handle http context
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser())
-app.use('/static', express.static('./static'))
-app.use('/', express.static('./public'))
+app.use('/static', express.static(path.join(__dirname, './../static')))
+app.use('/', express.static(path.join(__dirname, './../public')))
 app.use(function addStartTime(req, res, next) {
     req.startTime = Date.now()
     next()

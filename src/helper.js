@@ -1,4 +1,5 @@
 const fs = require('fs')
+     ,path = require('path')
 
 let helper = {}
 helper.genSitemap = function genSitemap() {
@@ -24,7 +25,7 @@ helper.genSitemap = function genSitemap() {
         })
     }
 
-    fs.writeFileSync('./public/sitemap.txt', r.join('\n'))
+    fs.writeFileSync(path.join(__dirname, './../public/sitemap.txt'), r.join('\n'))
 }
 
 helper.genRobots = function genRobots() {
@@ -34,7 +35,7 @@ Disallow:
 Crawl-delay: 5
 Sitemap: https://${config.domain}/sitemap.txt
 `
-    fs.writeFileSync('./public/robots.txt', r.trim())
+    fs.writeFileSync(path.join(__dirname, './../public/robots.txt'), r.trim())
 }
 
 module.exports = helper

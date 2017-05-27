@@ -1,4 +1,14 @@
 {
+  "name": "toolkit-site",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "cnwangjie",
+  "private": true,
+  "scripts": {
+    "preinstall": "node ./src/install",
+    "start": "pm2 start server-dev.yml",
+    "stop": "pm2 delete tool"
+  },
   "dependencies": {
     "async": "^2.4.0",
     "body-parser": "^1.17.1",

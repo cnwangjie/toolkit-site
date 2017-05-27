@@ -1,22 +1,37 @@
 toolkit-site
 ======
 
+## TODO
+
+ - [ ] tool verify tool
+ - [ ] server proccess manager
+ - [ ] config i18n
+ - [ ] DevOps auto deplay
+ - [ ] webhooks auto send twitter
+ - [ ] switch to [materialize](https://github.com/dogfalo/materialize/)
+
+## Developer Document
+
 ### 目录结构
 
 ```
 .
 ├── locales (整站i18n文件)
+├── src
+|   ├── controllers.js (控制器模块)
+|   ├── helper.js (辅助函数)
+|   ├── i18n.js (国际化模块)
+|   ├── install.js (安装脚本)
+|   ├── loader.js (工具加载模块)
+|   ├── renderer.js (渲染器模块)
+|   └── server.js (服务器入口)
+├── public (公开目录)
 ├── static (静态资源目录)
 ├── tmp (临时文件目录)
 ├── tools (工具目录)
-├── views (视图模板)
-├── i18n.js (i18n模块)
-├── loader.js (工具加载模块)
 ├── package.json
 ├── README.md
-├── renderer.js (渲染器模块)
-├── render.js
-└── server.js (服务器入口)
+└── index.js
 
 ```
 
@@ -90,9 +105,9 @@ toolkit-site
 
 暂时如下
 
-0. 运行 `node install.js`
+0. 执行 `npm install`
 0. 修改 `config.json`
-0. 运行 `pm2 start server`
+0. 执行 `npm start`
 
 ### 配置文件
 

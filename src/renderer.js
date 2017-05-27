@@ -1,4 +1,5 @@
 const fs = require('fs')
+     ,path = require('path')
 
 let initdata = ({funcpath, type, lang, title}) => {
     return {
@@ -82,7 +83,7 @@ let rendercate = (req, res, next) => {
 let rendertool = (req, res, next) => {
     let tool = req.params.toolname
     let lang = req.lang || 'en_US'
-    if (!fs.existsSync(`./tools/${tool}/tool.json`)) {
+    if (!fs.existsSync(path.join(__dirname, `./../tools/${tool}/tool.json`))) {
         let data = initdata({
             funcpath: req.funcpath,
             title: __('notfoundpagetitle', lang),
@@ -93,7 +94,7 @@ let rendertool = (req, res, next) => {
         next()
         return
     }
-    let tooldata = JSON.parse(fs.readFileSync(`./tools/${tool}/tool.json`))
+    let tooldata = JSON.parse(fs.readFileSync(path.join(__dirname, `./../tools/${tool}/tool.json`)))
     if (tooldata.display == 'none') {
         next()
         return

@@ -1,5 +1,5 @@
 apps:
-  - script: server.js
+  - script: src/server.js
     name: tool
     watch: true
     ignore_watch: [tmp, public]

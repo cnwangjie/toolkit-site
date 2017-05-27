@@ -1,5 +1,5 @@
 const fs = require('fs')
-     ,configfile = './config.json'
+     ,configfile = './../config.json'
      ,defaultconfig = {
         debug: false,
         gaid: '0',
@@ -9,7 +9,8 @@ const fs = require('fs')
 
 
 if (fs.existsSync(configfile)) {
+    console.log('installed!')
+} else {
     fs.writeFileSync(configfile, JSON.stringify(defaultconfig, null, 4))
+    console.log('install success!')
 }
-
-console.log('done!')

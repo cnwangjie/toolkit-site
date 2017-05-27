@@ -20,7 +20,7 @@ i18n.langs = {}
  */
 i18n.init = (opts) => {
     opts = opts || {}
-    i18n.localesDir = opts.localesDir || './locales'
+    i18n.localesDir = opts.localesDir || path.join(__dirname, './../locales')
 
     let files = fs.readdirSync(i18n.localesDir)
     i18n.defaultLang = opts.defaultLang || path.basename(files[0], '.json')
