@@ -1,13 +1,6 @@
 <p>
-  <div class="file-field">
-    <div class="btn">
-      <span><%= select %></span>
-      <input type="file"/>
-    </div>
-    <div class="file-path-wrapper">
-      <input class="file-path validate" type="file" accept="image/*" id="input"><%= select %></input>
-    </div>
-  </div>
+  <input class="validate" style="display:none;" type="file" accept="image/*" id="input"></input>
+  <label for="input" class="mdui-btn mdui-btn-raised mdui-ripple"><%= select %></label>
 </p>
 
 <style>
