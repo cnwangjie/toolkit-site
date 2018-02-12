@@ -3,6 +3,9 @@ const express = require('express')
      ,port = 8088
      ,cookieParser = require('cookie-parser')
      ,bodyParser = require('body-parser')
+     ,minify = require('express-minify')
+     ,uglifyEs = require('uglify-es')
+     ,compression = require('compression')
      ,fs = require('fs')
      ,path = require('path')
      ,ejs = require('ejs')
@@ -35,6 +38,11 @@ app.set('view engine', 'html')
 // use basically middleware to handle http context
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser())
+app.use(compression())
+app.use("*", minify({
+    cache: path.join(__dirname, './../cache'),
+    uglifyJsModule: uglifyEs,
+}))
 app.use('/static', express.static(path.join(__dirname, './../static')))
 app.use('/', express.static(path.join(__dirname, './../public')))
 app.use(function addStartTime(req, res, next) {
