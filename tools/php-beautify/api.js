@@ -12,7 +12,7 @@ router.post('/', (req, res, next) => {
         next()
         return
     } else {
-        let code = new Buffer(Math.random() + '').toString('base64').substr(4,13)
+        let code = Buffer.from(Math.random() + '').toString('base64').substr(4,13)
         let tmpfile = path.join(__dirname, `${code}.php`)
         let phpcfpath = path.join(__dirname, `./phpcf/phpcf`)
         fs.writeFileSync(tmpfile, c)

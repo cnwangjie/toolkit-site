@@ -1,0 +1,3 @@
+apps:
+  - script: src/server.js
+    name: toolkit.space

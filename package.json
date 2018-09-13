@@ -5,9 +5,7 @@
   "author": "cnwangjie",
   "private": true,
   "scripts": {
-    "preinstall": "node ./src/install",
-    "start": "pm2 start server-dev.yml",
-    "stop": "pm2 delete tool"
+    "start": "pm2-docker start server.yml"
   },
   "dependencies": {
     "async": "^2.4.0",
