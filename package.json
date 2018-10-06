@@ -5,7 +5,8 @@
   "author": "cnwangjie",
   "private": true,
   "scripts": {
-    "start": "pm2-docker start server.yml"
+    "start": "pm2-docker start server.yml",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "async": "^2.4.0",
@@ -18,5 +19,8 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "uglify-es": "^3.3.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }

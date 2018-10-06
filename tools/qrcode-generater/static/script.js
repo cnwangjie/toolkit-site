@@ -31,3 +31,11 @@ function e() {
   }
   re.append(cvs)
 }
+function onhashchange() {
+  if (location.hash) {
+    msg.value = location.hash.substr(1)
+    e()
+  }
+}
+window.onhashchange = onhashchange
+onhashchange()
